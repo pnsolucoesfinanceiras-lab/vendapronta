@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- VendaPronta V2 — pronto para publicação no GitHub Pages -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VendaPronta | Kit WhatsApp que Vende</title>
+<meta name="description" content="100 mensagens prontas para vender, fazer follow-up, responder objeções e recuperar clientes pelo WhatsApp.">
+<style>
+:root{
+  --navy:#0b1730;
+  --blue:#1769e0;
+  --orange:#ff7a18;
+  --light:#f5f7fb;
+  --text:#182238;
+  --muted:#657089;
+  --white:#fff;
+  --border:#e5e9f2;
+  --shadow:0 18px 50px rgba(11,23,48,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,Arial,Helvetica,sans-serif;color:var(--text);background:#fff;line-height:1.55}
+a{text-decoration:none}
+.container{width:min(1120px,92%);margin:auto}
+.header{padding:18px 0;background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:20}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-weight:900;font-size:24px;letter-spacing:-1px;color:var(--navy)}
+.logo span{color:var(--orange)}
+.nav-btn,.cta{display:inline-flex;align-items:center;justify-content:center;background:var(--orange);color:#fff;font-weight:800;border-radius:10px;padding:13px 22px;box-shadow:0 8px 22px rgba(255,122,24,.25);transition:.2s}
+.nav-btn:hover,.cta:hover{transform:translateY(-2px);filter:brightness(.97)}
+.hero{background:linear-gradient(135deg,#071226 0%,#102957 65%,#1769e0 100%);color:#fff;padding:78px 0 86px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:55px}
+.badge{display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);padding:8px 13px;border-radius:999px;font-size:13px;font-weight:800;margin-bottom:18px}
+.hero h1{font-size:clamp(40px,5vw,66px);line-height:1.02;letter-spacing:-2.5px;margin-bottom:22px}
+.hero h1 span{color:#ff9b52}
+.hero p{font-size:20px;color:#dce7fb;max-width:650px;margin-bottom:28px}
+.hero-note{font-size:13px;color:#c5d4ed;margin-top:13px}
+.mockup{background:#fff;color:var(--text);border-radius:25px;padding:16px;box-shadow:0 28px 70px rgba(0,0,0,.28);transform:rotate(1.5deg)}
+.phone{border:1px solid var(--border);border-radius:19px;overflow:hidden;background:#f5f7fb}
+.phone-top{background:#075e54;color:#fff;padding:15px;font-weight:800}
+.chat{padding:18px;min-height:340px}
+.bubble{max-width:86%;padding:12px 14px;border-radius:14px;margin:10px 0;font-size:14px}
+.in{background:#fff;border:1px solid #e7eaf0}
+.out{background:#dcf8c6;margin-left:auto}
+.section{padding:78px 0}
+.section.alt{background:var(--light)}
+.center{text-align:center}
+.eyebrow{color:var(--blue);font-weight:900;text-transform:uppercase;letter-spacing:1.5px;font-size:12px;margin-bottom:9px}
+.section h2{font-size:clamp(30px,4vw,45px);line-height:1.1;letter-spacing:-1.5px;margin-bottom:14px}
+.section-intro{max-width:700px;margin:0 auto 38px;color:var(--muted);font-size:17px}
+.problem-grid,.features,.bonus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:25px;box-shadow:0 7px 25px rgba(11,23,48,.05)}
+.problem-grid .card{font-weight:700}
+.icon{width:42px;height:42px;border-radius:12px;background:#eaf2ff;color:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:900;margin-bottom:15px}
+.features{grid-template-columns:repeat(2,1fr)}
+.feature{display:flex;gap:15px;align-items:flex-start}
+.feature .icon{flex:0 0 42px}
+.feature h3{font-size:17px;margin-bottom:4px}
+.feature p,.card p{color:var(--muted);font-size:14px}
+.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:35px}
+.category{background:#fff;border:1px solid var(--border);padding:20px;border-radius:14px;text-align:center;font-weight:800}
+.offer{background:linear-gradient(135deg,#071226,#102957);color:#fff;border-radius:26px;padding:50px;display:grid;grid-template-columns:1fr .8fr;gap:30px;align-items:center;box-shadow:var(--shadow)}
+.offer h2{font-size:42px}
+.price{font-size:55px;font-weight:950;letter-spacing:-2px;margin:8px 0}
+.offer small{color:#cbd7ea}
+.offer-box{background:#fff;color:var(--text);padding:28px;border-radius:18px}
+.offer-box ul{list-style:none;margin:16px 0 22px}
+.offer-box li{margin:10px 0}
+.offer-box li:before{content:"✓";color:var(--orange);font-weight:900;margin-right:9px}
+.bonus-grid{grid-template-columns:repeat(4,1fr)}
+.bonus .icon{background:#fff3e9;color:var(--orange)}
+.audience{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:900px;margin:auto}
+.audience li{list-style:none;background:#fff;border:1px solid var(--border);padding:14px 18px;border-radius:10px}
+.audience li:before{content:"✓";color:var(--blue);font-weight:900;margin-right:9px}
+.faq{max-width:850px;margin:auto}
+details{border-bottom:1px solid var(--border);padding:20px 0}
+summary{cursor:pointer;font-weight:800;font-size:17px}
+details p{color:var(--muted);padding-top:12px}
+.final{background:#eef4ff;text-align:center;padding:78px 0}
+.final h2{font-size:clamp(32px,4vw,48px);margin-bottom:12px}
+.final p{color:var(--muted);margin-bottom:25px}
+.footer{background:#071226;color:#b9c5da;text-align:center;padding:28px;font-size:13px}
+.footer strong{color:#fff}
+@media(max-width:850px){
+  .hero-grid,.offer,.audience{grid-template-columns:1fr}
+  .hero{padding:55px 0 65px}
+  .hero h1{font-size:43px}
+  .hero p{font-size:17px}
+  .problem-grid,.bonus-grid{grid-template-columns:1fr 1fr}
+  .categories{grid-template-columns:1fr 1fr}
+  .offer h2{font-size:34px}
+}
+@media(max-width:560px){
+  .header{position:relative}
+  .nav-btn{padding:10px 13px;font-size:12px}
+  .problem-grid,.features,.bonus-grid,.categories,.audience{grid-template-columns:1fr}
+  .section{padding:58px 0}
+  .offer{padding:30px 22px}
+  .price{font-size:48px}
+  .hero h1{letter-spacing:-1.5px}
+}
+</style>
+</head>
+<body>
+
+<!-- ALTERE SOMENTE A URL ABAIXO QUANDO TIVER O CHECKOUT -->
+<script>
+const CHECKOUT_URL = "https://pay.kiwify.com.br/tcuxPLv";
+function comprar(){
+  window.location.href = CHECKOUT_URL;
+}
+</script>
+
+<header class="header">
+  <div class="container nav">
+    <div class="logo">Venda<span>Pronta</span></div>
+    <a href="#oferta" class="nav-btn">Quero o Kit</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="badge">KIT WHATSAPP QUE VENDE • ACESSO DIGITAL</div>
+      <h1>PARE DE FICAR SEM SABER <span>O QUE RESPONDER</span> AO CLIENTE.</h1>
+      <p>Tenha 100 mensagens prontas para vender, fazer follow-up, responder objeções, fechar negócios e recuperar clientes pelo WhatsApp.</p>
+      <a class="cta" href="https://pay.kiwify.com.br/tcuxPLv">QUERO MEU KIT POR R$ 9,90</a>
+      <div class="hero-note">Pagamento único • Material digital • Acesso após confirmação</div>
+    </div>
+    <div class="mockup">
+      <div class="phone">
+        <div class="phone-top">WhatsApp • Atendimento</div>
+        <div class="chat">
+          <div class="bubble in">Oi, gostaria de saber mais sobre o produto.</div>
+          <div class="bubble out">Claro! Vou te explicar rapidinho. Antes, posso entender o que você procura?</div>
+          <div class="bubble in">Quero algo que caiba no meu orçamento.</div>
+          <div class="bubble out">Perfeito. Vou te mostrar a opção que melhor se encaixa no que você precisa.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container center">
+    <div class="eyebrow">O problema</div>
+    <h2>Você já perdeu uma venda por não saber o que dizer?</h2>
+    <p class="section-intro">Muitas oportunidades acabam não por falta de interesse do cliente, mas porque a conversa não é conduzida até o próximo passo.</p>
+    <div class="problem-grid">
+      <div class="card">O cliente pergunta o preço e você trava na resposta.</div>
+      <div class="card">Você manda uma proposta e ele desaparece.</div>
+      <div class="card">Você não sabe fazer follow-up sem parecer insistente.</div>
+      <div class="card">O cliente diz “está caro” e você não sabe como continuar.</div>
+      <div class="card">Você conversa, conversa... e nunca chega ao fechamento.</div>
+      <div class="card">Você deixa clientes antigos esfriarem e perde novas oportunidades.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container center">
+    <div class="eyebrow">A solução</div>
+    <h2>Conheça o Kit WhatsApp que Vende</h2>
+    <p class="section-intro">Um material prático para você encontrar rapidamente a mensagem certa para cada momento da conversa.</p>
+    <div class="features">
+      <div class="card feature"><div class="icon">01</div><div><h3>Prospecção</h3><p>Mensagens para iniciar conversas e abordar novos clientes.</p></div></div>
+      <div class="card feature"><div class="icon">02</div><div><h3>Apresentação</h3><p>Estruturas para apresentar produtos e serviços com clareza.</p></div></div>
+      <div class="card feature"><div class="icon">03</div><div><h3>Follow-up</h3><p>Mensagens para acompanhar propostas sem ficar insistindo.</p></div></div>
+      <div class="card feature"><div class="icon">04</div><div><h3>Objeções</h3><p>Respostas para situações como “está caro” e “vou pensar”.</p></div></div>
+      <div class="card feature"><div class="icon">05</div><div><h3>Fechamento</h3><p>Mensagens para conduzir o cliente ao próximo passo.</p></div></div>
+      <div class="card feature"><div class="icon">06</div><div><h3>Recuperação</h3><p>Abordagens para tentar recuperar clientes que sumiram.</p></div></div>
+      <div class="card feature"><div class="icon">07</div><div><h3>Pós-venda</h3><p>Mensagens para acompanhar o cliente depois da compra.</p></div></div>
+      <div class="card feature"><div class="icon">08</div><div><h3>Indicação e recompra</h3><p>Mensagens para gerar novas oportunidades com clientes atuais.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container center">
+    <div class="eyebrow">Dentro do kit</div>
+    <h2>100 mensagens prontas</h2>
+    <p class="section-intro">Organizadas por situação para você não precisar inventar uma abordagem do zero.</p>
+    <div class="categories">
+      <div class="category">15 • Prospecção</div>
+      <div class="category">10 • Apresentação</div>
+      <div class="category">15 • Follow-up</div>
+      <div class="category">20 • Objeções</div>
+      <div class="category">15 • Fechamento</div>
+      <div class="category">10 • Recuperação</div>
+      <div class="category">10 • Pós-venda</div>
+      <div class="category">05 • Indicação</div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container center">
+    <div class="eyebrow">Bônus</div>
+    <h2>E ainda tem mais</h2>
+    <p class="section-intro">Além das 100 mensagens, você recebe materiais extras para melhorar seu atendimento.</p>
+    <div class="bonus-grid">
+      <div class="card bonus"><div class="icon">IA</div><h3>10 Prompts de IA</h3><p>Prompts prontos para melhorar mensagens, responder objeções e criar abordagens.</p></div>
+      <div class="card bonus"><div class="icon">✓</div><h3>Checklist de vendas</h3><p>7 passos simples para organizar e melhorar seu atendimento pelo WhatsApp.</p></div>
+      <div class="card bonus"><div class="icon">AI</div><h3>Mini guia de IA</h3><p>Aprenda formas práticas de usar inteligência artificial para apoiar suas vendas.</p></div>
+      <div class="card bonus"><div class="icon">↗</div><h3>Versão editável</h3><p>Adapte as mensagens ao seu negócio, produto e estilo de atendimento.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="center">
+      <div class="eyebrow">Para quem é</div>
+      <h2>Se você vende pelo WhatsApp, este kit é para você.</h2>
+    </div>
+    <ul class="audience" style="margin-top:32px">
+      <li>Vendedores autônomos</li>
+      <li>Pequenos empreendedores</li>
+      <li>Lojas e comércios</li>
+      <li>Prestadores de serviços</li>
+      <li>Profissionais comerciais</li>
+      <li>Quem está começando a vender</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="oferta">
+  <div class="container">
+    <div class="offer">
+      <div>
+        <div class="eyebrow" style="color:#ff9b52">Oferta de lançamento</div>
+        <h2>Tenha o Kit WhatsApp que Vende hoje.</h2>
+        <div class="price">R$ 9,90</div>
+        <p style="color:#dce7fb">Pagamento único. Sem mensalidade.</p>
+      </div>
+      <div class="offer-box">
+        <strong>Você recebe:</strong>
+        <ul>
+          <li>100 mensagens prontas</li>
+          <li>10 prompts de IA</li>
+          <li>Checklist de vendas</li>
+          <li>Mini guia de IA</li>
+          <li>Versão editável</li>
+        </ul>
+        <a class="cta" style="width:100%" href="https://pay.kiwify.com.br/tcuxPLv">QUERO ACESSAR AGORA</a>
+        <p style="font-size:12px;color:#7a8498;margin-top:12px;text-align:center">O acesso é liberado digitalmente após a confirmação do pagamento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <div class="center">
+      <div class="eyebrow">Dúvidas</div>
+      <h2>Perguntas frequentes</h2>
+    </div>
+    <div class="faq">
+      <details><summary>Preciso ter experiência em vendas?</summary><p>Não. O material foi pensado para ajudar tanto quem está começando quanto quem já trabalha com vendas.</p></details>
+      <details><summary>As mensagens servem para qualquer negócio?</summary><p>Elas foram criadas para situações comerciais comuns e podem ser adaptadas para diferentes produtos e serviços.</p></details>
+      <details><summary>Como receberei o material?</summary><p>O produto é digital e o acesso é disponibilizado após a confirmação do pagamento, conforme a plataforma utilizada.</p></details>
+      <details><summary>Existe mensalidade?</summary><p>Não. A proposta do produto é um pagamento único de R$ 9,90.</p></details>
+      <details><summary>Posso editar as mensagens?</summary><p>Sim. O kit inclui uma versão editável para facilitar a personalização.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="container">
+    <h2>Você não precisa saber o que dizer de cabeça.</h2>
+    <p>Tenha uma mensagem pronta para cada etapa da sua venda.</p>
+    <a class="cta" href="#oferta">QUERO O KIT POR R$ 9,90</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <p><strong>VendaPronta</strong> • Kit WhatsApp que Vende</p>
+  <p style="margin-top:5px">Produto digital. Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>
